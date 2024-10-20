@@ -6,7 +6,6 @@ export interface Product {
   image: string;
   category: string;
 }
- 
 export interface ProductsState {
   products: Product[];
   status: 'idle' | 'loading' | 'succeeded' | 'failed';
