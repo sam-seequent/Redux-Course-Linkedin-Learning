@@ -1,5 +1,5 @@
 export interface CartItem {
-  id: number
+  readonly id: number
   price: number;
 }
 export interface CartState {
