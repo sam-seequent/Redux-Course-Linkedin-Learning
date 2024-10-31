@@ -1,4 +1,5 @@
 import cartReducer, { CartState, addToCart, removeFromCart } from '../redux/reducers/cartReducer';
+import { applyCoupon } from '../redux/reducers/cartReducer';
 
 describe('Cart Reducer', () => {
   const initialState: CartState = {
@@ -39,5 +40,22 @@ describe('Cart Reducer', () => {
     };
 
     expect(cartReducer(initialStateWithItems, removeFromCart(1))).toEqual(expectedState);
+  });
+
+  it('should apply a coupon and adjust the total price', () => {
+    const initialState: CartState = {
+      items: [
+        { id: 1, price: 100 },
+        { id: 2, price: 200 },
+      ],
+      totalPrice: 300,
+    };
+    
+    const expectedState: CartState = {
+      ...initialState,
+      totalPrice: 270,
+    };
+  
+    expect(cartReducer(initialState, applyCoupon('DISCOUNT10'))).toEqual(expectedState);
   });
 });
