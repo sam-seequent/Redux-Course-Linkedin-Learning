@@ -13,8 +13,8 @@ export const App: React.FC = () => {
   return (
     <AppContainer>
       <h1>Shopping App</h1>
-      <Cart />
       <ProductList />
+      <Cart />
     </AppContainer>
   );
 };
