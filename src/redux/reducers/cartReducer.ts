@@ -39,9 +39,15 @@ const cartSlice = createSlice({
         state.totalPrice -= item.price;
         state.items = state.items.filter(item => item.id !== action.payload);
       }
-    }
+    },
+    applyCoupon(state, action: PayloadAction<string>) {
+      const couponCode = action.payload;
+      if (couponCode === 'DISCOUNT10') {
+        state.totalPrice *= 0.9;
+      }
+    },
   },
 });
 
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, applyCoupon } = cartSlice.actions;
 export default cartSlice.reducer;
