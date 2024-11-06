@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectCartTotalItems } from '../redux/selectors/productsSelector';
+import { selectCartTotalItems } from '../redux/selectors/cartSelector';
 
 export const Cart: FC = () => {
   const totalItems = useSelector(selectCartTotalItems);
