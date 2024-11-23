@@ -1,6 +1,4 @@
 import React from 'react';
-import { ProductList } from './components/productList';
-import { Cart } from './components/cart';
 import styled from 'styled-components';
 import { ProductList } from './components/productList'
 import { Cart } from './components/cart'
