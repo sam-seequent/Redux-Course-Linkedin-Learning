@@ -2,7 +2,8 @@ import React from 'react';
 import { ProductList } from './components/productList';
 import { Cart } from './components/cart';
 import styled from 'styled-components';
-
+import { ProductList } from './components/productList'
+import { Cart } from './components/cart'
 const AppContainer = styled.div`
   max-width: 1200px;
   margin: 0 auto;
