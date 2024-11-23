@@ -1,8 +1,6 @@
 import React, { FC } from 'react';
-import { useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
-import { selectCartTotalItems, selectCartTotalPrice } from '../../redux/selectors/cartSelector';
 import {
   CartContainer,
   CartIconWrapper,
@@ -11,8 +9,6 @@ import {
 } from './styles';
 
 export const Cart: FC = () => {
-  const totalItems = useSelector(selectCartTotalItems);
-  const totalPrice = useSelector(selectCartTotalPrice);
 
   return (
     <CartContainer>
@@ -20,8 +16,8 @@ export const Cart: FC = () => {
         <FontAwesomeIcon icon={faShoppingCart} size="lg" />
       </CartIconWrapper>
       <CartInfoContainer>
-        <CartInfoText>Total Items: {totalItems}</CartInfoText>
-        <CartInfoText>Total Price: ${totalPrice.toFixed(2)}</CartInfoText>
+        <CartInfoText>Total Items: 20</CartInfoText>
+        <CartInfoText>Total Price: 245</CartInfoText>
       </CartInfoContainer>
     </CartContainer>
   );
