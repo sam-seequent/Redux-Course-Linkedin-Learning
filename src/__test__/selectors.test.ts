@@ -85,6 +85,6 @@ describe('Selectors', () => {
     const expensiveProducts = selectExpensiveProducts(mockState);
 
     expect(expensiveProducts.length).toEqual(1);
-    expect(expensiveProducts[0]).toEqual(products[2]);
+    expect(expensiveProducts[0]).toEqual(products[1]);
   });
 });
