@@ -71,7 +71,14 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
+## Instructor
 
+Oluchukwu Okpala
+
+Software Engineer
+           
+
+Check out my other courses on [LinkedIn Learning](https://www.linkedin.com/learning/instructors/oluchukwu-okpala?u=104).
 
 [0]: # (Replace these placeholder URLs with actual course URLs)
 
