@@ -1,10 +1,11 @@
 export interface CartItem {
-  id: number
+  readonly id: number
   price: number;
 }
 export interface CartState {
   items: CartItem[];
   totalPrice: number;
+  rating?: number;
 }
 
 const initialState: CartState = {
