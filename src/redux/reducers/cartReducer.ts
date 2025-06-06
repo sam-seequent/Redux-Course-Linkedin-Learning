@@ -14,9 +14,17 @@ const initialState: CartState = {
   totalPrice: 0,
 };
 
+// Create slice is used to define the initial state and reducers for anything in a Redux store.
+// It is a part of Redux Toolkit which simplifies the process of creating actions and reducers.
 const cartSlice = createSlice({
+  // As you can see there are a few properties
+  // name: The name of the slice
+  // initialState: The initial state of the slice
+  // reducers: An object containing the reducer functions
   name: 'cart',
   initialState,
+  //Reducers are functions that can modify the state
+  //They take a payload action that can be used to modify the state
   reducers: {
     addToCart(state, action: PayloadAction<CartItem>) {
       state.items.push(action.payload);
@@ -32,5 +40,7 @@ const cartSlice = createSlice({
   },
 });
 
+//Note here that the Slice type has an actions property that extracts reducer functions
 export const { addToCart, removeFromCart } = cartSlice.actions;
+// The reducer is exported so that it can later be plugged into the global store
 export default cartSlice.reducer;
