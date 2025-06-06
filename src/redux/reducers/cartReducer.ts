@@ -1,7 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 export interface CartItem {
-  readonly id: number
+  id: number
   price: number;
+  details: {
+    manufacturer: string;
+    warranty: string;
+  };
 }
 export interface CartState {
   items: CartItem[];
@@ -26,6 +30,12 @@ const cartSlice = createSlice({
   //Reducers are functions that can modify the state
   //They take a payload action that can be used to modify the state
   reducers: {
+    updateProductWarranty(state, action: PayloadAction<{ id: number; warranty: string }>) {
+      const cartItem = state.items.find(item => item.id === action.payload.id);
+      if (cartItem && cartItem.details) {
+        cartItem.details.warranty = action.payload.warranty;
+      }
+    },
     addToCart(state, action: PayloadAction<CartItem>) {
       state.items.push(action.payload);
       state.totalPrice += action.payload.price;
