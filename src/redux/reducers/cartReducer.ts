@@ -50,11 +50,17 @@ const cartSlice = createSlice({
         state.totalPrice -= item.price;
         state.items = state.items.filter(item => item.id !== action.payload);
       }
-    }
+    },
+    applyCoupon(state, action: PayloadAction<string>) {
+      const couponCode = action.payload;
+      if (couponCode === 'DISCOUNT10') {
+        state.totalPrice *= 0.9;
+      }
+    },
   },
 });
 
 //Note here that the Slice type has an actions property that extracts reducer functions
-export const { addToCart, removeFromCart } = cartSlice.actions;
+export const { addToCart, removeFromCart, applyCoupon } = cartSlice.actions;
 // The reducer is exported so that it can later be plugged into the global store
 export default cartSlice.reducer;
