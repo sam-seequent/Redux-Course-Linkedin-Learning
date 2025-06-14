@@ -8,6 +8,7 @@ import { selectCartTotalItems } from '../redux/selectors/productsSelector';
 // Local state is managed within a component using React's useState hook and is not accessible outside that component.
 // example: The delivery note is managed within the Cart component and is not accessible outside that component.
 
+//Note: Not used past Chapter 3
 export const Cart: FC = () => {
   const totalItems = useSelector(selectCartTotalItems);
   const [deliveryNote, setDeliveryNote] = useState<string>('')
