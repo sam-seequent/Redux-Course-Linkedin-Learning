@@ -5,7 +5,7 @@ export interface CartItem {
   // Note even though we have nested properties in the CartItem interface,
   // we can still use the same interface for the payload action and not have
   // to create a new slice for the details.
-  details: {
+  details?: {
     manufacturer: string;
     warranty: string;
   };
