@@ -10,6 +10,7 @@ export interface CartItem {
     warranty: string;
   };
 }
+
 export interface CartState {
   items: CartItem[];
   totalPrice: number;
