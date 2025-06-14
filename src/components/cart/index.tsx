@@ -7,14 +7,11 @@ import {
   CartInfoContainer,
   CartInfoText,
 } from './styles';
-import { selectCartTotalItems } from '../../redux/selectors/productsSelector';
-import { useSelector } from 'react-redux';
-import { selectCartTotalPrice } from '../../redux/selectors/cartSelector';
+import { useCart } from './hooks/useCart';
 
 export const Cart: FC = () => {
-  // Here we use our predefined selectors and the useSelector hook to access the global state managed by Redux.
-  const totalItems = useSelector(selectCartTotalItems);
-  const totalPrice = useSelector(selectCartTotalPrice);
+const { totalItems, totalPrice } = useCart();
+
 
   return (
     <CartContainer>
