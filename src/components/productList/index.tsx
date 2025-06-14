@@ -2,7 +2,6 @@ import React from 'react';
 import { useProductList } from './hooks/useProductList';
 import { ProductDetails } from '../productDetails';
 import { ProductListContainer, LoadingMessage, ErrorMessage } from './styles';
-import { useProduct } from './hooks/useProduct';
 
 export const ProductList: React.FC = () => {
   // The useDispatch hook allows us to dispatch actions to the Redux store, updating the state.

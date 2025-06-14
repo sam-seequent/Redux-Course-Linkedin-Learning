@@ -1,3 +1,5 @@
+// Command to install dependencies: npm install --save-dev @types/jest @testing-library/react @testing-library/jest-dom jest
+// All other testing is pretty similar to univeristy and is available in the Greenwich repo as well, so no additional notes here.
 import { selectCartTotalItems, selectCartTotalPrice } from '../redux/selectors/cartSelector';
 import { selectAllProducts, selectExpensiveProducts } from '../redux/selectors/productsSelector';
 import { CartState } from '../redux/reducers/cartReducer';
@@ -5,7 +7,10 @@ import { UserState } from '../redux/reducers/userReducer';
 import { RootState } from '../redux/store';
 import { ProductsState, Product } from '../redux/reducers/productsReducer';
 
+// Follow unit testing best practices, mock where necessary, and keep tests isolated.
+// Defines a test suite
 describe('Selectors', () => {
+  // Defines a test case
   it('should select total items in the cart - selectCartTotalItems', () => {
     const cartState: CartState = {
       items: [
@@ -16,11 +21,14 @@ describe('Selectors', () => {
     };
 
     const mockState: RootState = {
-      cart: cartState,
-      user: {} as UserState,
-      products: {} as ProductsState,
+      reducer: {
+        cart: cartState,
+        user: {} as UserState,
+        products: {} as ProductsState,
+      }
     };
 
+    // Like an assertion
     expect(selectCartTotalItems(mockState)).toEqual(2);
   });
 
@@ -34,9 +42,11 @@ describe('Selectors', () => {
     };
 
     const mockState: RootState = {
-      cart: cartState,
-      user: {} as UserState,
-      products: {} as ProductsState,
+      reducer: {
+        cart: cartState,
+        user: {} as UserState,
+        products: {} as ProductsState,
+      }
     };
 
     expect(selectCartTotalPrice(mockState)).toEqual(300);
@@ -55,9 +65,11 @@ describe('Selectors', () => {
     };
 
     const mockState: RootState = {
-      cart: {} as CartState,
-      user: {} as UserState,
-      products: productsState,
+      reducer: {
+        cart: {} as CartState,
+        user: {} as UserState,
+        products: productsState,
+      }
     };
 
     expect(selectAllProducts(mockState)).toEqual(products);
@@ -76,9 +88,11 @@ describe('Selectors', () => {
     };
 
     const mockState: RootState = {
-      cart: {} as CartState,
-      user: {} as UserState,
-      products: productsState,
+      reducer: {
+        cart: {} as CartState,
+        user: {} as UserState,
+        products: productsState,
+      }
     };
 
 
