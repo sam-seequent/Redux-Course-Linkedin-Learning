@@ -26,6 +26,7 @@ const productsSlice = createSlice({
   reducers: {},
   extraReducers: (builder) => {
     builder
+    // Sets product state based on the status of the fetchProducts action
       .addCase(fetchProducts.pending, (state) => {
         state.status = 'loading';
       })
