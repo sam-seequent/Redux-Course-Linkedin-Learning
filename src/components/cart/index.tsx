@@ -10,6 +10,7 @@ import {
 import { useCart } from './hooks/useCart';
 
 export const Cart: FC = () => {
+  // You can destructure the values you need from the custom hook.
 const { totalItems, totalPrice } = useCart();
 
 

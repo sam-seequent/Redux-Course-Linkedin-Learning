@@ -9,6 +9,7 @@ import {
   ProductPrice,
   AddToCartButton,
 } from './styles';
+import { useProduct } from '../productList/hooks/useProduct';
 
 interface ProductDetailsProps {
   id: number;
@@ -19,11 +20,7 @@ interface ProductDetailsProps {
 }
 
 export const ProductDetails: FC<ProductDetailsProps> = ({ id, title, price, description, image }) => {
-  const dispatch = useDispatch();
-
-  const handleAddToCart = () => {
-    dispatch(addToCart({ id, price }));
-  };
+  const { handleAddToCart } = useProduct();
 
   return (
     <ProductDetailsContainer>
@@ -31,7 +28,7 @@ export const ProductDetails: FC<ProductDetailsProps> = ({ id, title, price, desc
       <ProductTitle>{title}</ProductTitle>
       <ProductDescription>{description}</ProductDescription>
       <ProductPrice>${price}</ProductPrice>
-      <AddToCartButton onClick={handleAddToCart}>Add to Cart</AddToCartButton>
+      <AddToCartButton onClick={() => handleAddToCart(id, price)}>Add to Cart</AddToCartButton>
     </ProductDetailsContainer>
   );
 };

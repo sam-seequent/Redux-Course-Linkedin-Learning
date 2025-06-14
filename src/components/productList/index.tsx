@@ -1,23 +1,11 @@
-import React, { useEffect, FC } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { fetchProducts } from '../../redux/actions/productsActions';
-import { selectAllProducts, selectProductListStatus, selectExpensiveProducts } from '../../redux/selectors/productsSelector';
-import { AppDispatch } from '../../redux/store';
+import { FC } from 'react';
 import { ProductDetails } from '../productDetails';
 import { ProductListContainer, LoadingMessage, ErrorMessage } from './styles';
+import { useProduct } from './hooks/useProduct';
 
 export const ProductList: FC = () => {
   // The useDispatch hook allows us to dispatch actions to the Redux store, updating the state.
-  const dispatch = useDispatch<AppDispatch>();
-  const products = useSelector(selectAllProducts);
-  const status = useSelector(selectProductListStatus);
-  const expensiveProducts = useSelector(selectExpensiveProducts);
-
-  useEffect(() => {
-    if (status === 'idle') {
-      dispatch(fetchProducts());
-    }
-  }, [status, dispatch]);
+  const { products, expensiveProducts, status } = useProduct();
 
   if (status === 'loading') {
     return <LoadingMessage>Loading...</LoadingMessage>;
