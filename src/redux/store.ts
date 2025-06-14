@@ -1,13 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
-import cartReducer from './reducers/cartReducer'
-import productsReducer from './reducers/productsReducer'
+import rootReducer from './reducers/rootReducer';
 
 export const store = configureStore({
-  // Here we import the reducers we need to effectively manage the state of the application.
+  // Ch 2: Here we import the reducers we need to effectively manage the state of the application.
   // This is considered the global store of the application.
+
+  // Ch 3: Now the rootReducer is imported from the reducers folder instead of multiple individual reducers.
   reducer: {
-    cart: cartReducer,
-    productsList: productsReducer
+    reducer: rootReducer
   },
 });
   
