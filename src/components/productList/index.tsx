@@ -7,6 +7,7 @@ import { ProductDetails } from '../productDetails';
 import { ProductListContainer, LoadingMessage, ErrorMessage } from './styles';
 
 export const ProductList: FC = () => {
+  // The useDispatch hook allows us to dispatch actions to the Redux store, updating the state.
   const dispatch = useDispatch<AppDispatch>();
   const products = useSelector(selectAllProducts);
   const status = useSelector(selectProductListStatus);
