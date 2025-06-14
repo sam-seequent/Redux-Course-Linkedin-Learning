@@ -1,11 +1,12 @@
-import { FC } from 'react';
+import React from 'react';
+import { useProductList } from './hooks/useProductList';
 import { ProductDetails } from '../productDetails';
 import { ProductListContainer, LoadingMessage, ErrorMessage } from './styles';
 import { useProduct } from './hooks/useProduct';
 
-export const ProductList: FC = () => {
+export const ProductList: React.FC = () => {
   // The useDispatch hook allows us to dispatch actions to the Redux store, updating the state.
-  const { products, expensiveProducts, status } = useProduct();
+  const { products, status, expensiveProducts } = useProductList();
 
   if (status === 'loading') {
     return <LoadingMessage>Loading...</LoadingMessage>;
@@ -30,7 +31,8 @@ export const ProductList: FC = () => {
           />
         ))}
       </ProductListContainer>
-      <h1>Expensive Products</h1>
+
+      <h2>Expensive Products</h2>
       <ProductListContainer>
         {expensiveProducts.map((product) => (
           <ProductDetails
